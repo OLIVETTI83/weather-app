@@ -15,7 +15,7 @@ const cities = [
   'Caracas',
   'Miranda de Ebro',
   'Higuerote',
-  'Vitoria',
+  'Vitoria-Gasteiz',
   'Bilbao',
 ]
 
