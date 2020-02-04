@@ -5,10 +5,11 @@ import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import ToolBar from '@material-ui/core/Toolbar';
 import ForecastExtended from './components/ForecastExtended';
-
+import { setCity } from './actions';
+import { store } from './store';
 import './App.css';
 import LocationList from './components/LocationList';
-// import { MuiThemeProvider } from '@material-ui/core';
+
 
 const cities = [
   'Madrid',
@@ -17,7 +18,8 @@ const cities = [
   'Higuerote',
   'Vitoria-Gasteiz',
   'Bilbao',
-]
+];
+
 
 
 
@@ -32,12 +34,16 @@ class App extends Component {
   handleSelectedLocation = city =>{
     this.setState({ city });
     console.log(`handleSelectionLocation ${city}`);
+
+
+    store.dispatch(setCity(city));
   }
+
+
   render(){
     const {city} = this.state;
     return(
       
-      // <MuiThemeProvider>
         <Grid>
           <Row>
             <AppBar position='sticky'>
@@ -68,7 +74,6 @@ class App extends Component {
           </Col>
           </Row>
         </Grid>
-      // </MuiThemeProvider>
     );
   }
 }
